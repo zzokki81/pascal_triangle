@@ -1,26 +1,28 @@
 class Triangle
-
   def initialize
-    @pascals_row = []
+    @triangle = [[1]]
   end
 
   def pascal(row_number)
-    if row_number ==  0
-      @pascals_row << [1]
+    case row_number
+    when 0
+      @triangle
+    when 1
+      @triangle << [1]
     else
-      @pascals_row << (0..row_number).map { |i| binomial(row_number, i) }
+      calculate_rows(row_number)
     end
   end
 
-  private
-  def factorial(n)
-    (1..n).inject(:*)
+  def triangle_print(row_number)
+    calculate_rows(row_number + 1).map {|num| num.join(" ").center(row_number * 3)}
   end
 
   private
-  def binomial(n,k)
-    return 1 if n-k <= 0
-    return 1 if k <= 0
-    factorial(n) / (factorial(k) * factorial(n - k))
+  def calculate_rows(row_number)
+    (row_number-1).times do
+      @triangle << [1] + @triangle.last.each_cons(2).map{|a, b| a + b} + [1]
+    end
+    @triangle
   end
 end

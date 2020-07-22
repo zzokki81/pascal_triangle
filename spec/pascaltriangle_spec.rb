@@ -10,26 +10,26 @@ describe Triangle do
   end
 
   context "For row number '1'" do
-    it "returns triangle row [[1, 1]]" do
-      expect(Triangle.new.pascal(1)).to eql([[1, 1]])
+    it "returns triangle row [[1], [1]]" do
+      expect(Triangle.new.pascal(1)).to eql([[1], [1]])
+    end
+  end
+
+  context "For row number '3'" do
+    it "returns triangle row [[1], [1, 1], [1, 2, 1]]" do
+      expect(Triangle.new.pascal(3)).to eql([[1], [1, 1], [1, 2, 1]])
+    end
+  end
+
+  context "For row number '5'" do
+    it "returns triangle row [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]" do
+      expect(Triangle.new.pascal(5)).to eql([[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]])
     end
   end
 
   context "For row number '6'" do
-    it "returns triangle row [[1, 6, 15, 20, 15, 6, 1]]" do
-      expect(Triangle.new.pascal(6)).to eql([[1, 6, 15, 20, 15, 6, 1]])
-    end
-  end
-
-  context "For row number '8'" do
-    it "returns triangle row [[1, 8, 28, 56, 70, 56, 28, 8, 1]]" do
-      expect(Triangle.new.pascal(8)).to eql([[1, 8, 28, 56, 70, 56, 28, 8, 1]])
-    end
-  end
-
-  context "For row number '10'" do
-    it "returns triangle row[[1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1]]" do
-      expect(Triangle.new.pascal(10)).to eql([[1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1]])
+    it "returns triangle row [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]]" do
+      expect(Triangle.new.pascal(6)).to eql([[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]])
     end
   end
 end
